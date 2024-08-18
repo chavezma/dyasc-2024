@@ -1,30 +1,31 @@
 package ar.edu.untref.dyasc;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Fibonacci {
 
-    public List<Long> getFibo(Long n) {
+    public List<BigInteger> getFibo(BigInteger n) {
 
-        final Long n1 = 0L;
-        final Long n2 = 1L;
+        final BigInteger n1 = BigInteger.ZERO;
+        final BigInteger n2 = BigInteger.ONE;
 
-        List<Long> result = new ArrayList<>();
-        Long n_minus_1 = n2;
-        Long n_minus_2 = n1;
-        Long new_x = 0L;
+        List<BigInteger> result = new ArrayList<>();
+        BigInteger n_minus_1 = n2;
+        BigInteger n_minus_2 = n1;
+        BigInteger new_x;
 
-        if (n <= 0) {
-            throw new IllegalArgumentException();
+        if (n.compareTo(BigInteger.ZERO) <= 0) {
+            throw new IllegalArgumentException("El valor debe ser mayor que cero.");
         }
 
-        if(n == 1) {
+        if (n.equals(BigInteger.ONE)) {
             result.add(n1);
             return result;
         }
 
-        if(n == 2){
+        if (n.equals(BigInteger.valueOf(2))) {
             result.add(n1);
             result.add(n2);
             return result;
@@ -33,18 +34,11 @@ public class Fibonacci {
         result.add(n1);
         result.add(n2);
 
-        for (Long x = 3L; x <= n; x++) {
-            System.out.println("n_minus_1: " + n_minus_1);
-            System.out.println("n_minus_2: " + n_minus_2);
-            new_x = n_minus_1 + n_minus_2;
-            System.out.println("new_x: " + new_x);
-
+        for (BigInteger x = BigInteger.valueOf(3); x.compareTo(n) <= 0; x = x.add(BigInteger.ONE)) {
+            new_x = n_minus_1.add(n_minus_2);
             n_minus_2 = n_minus_1;
             n_minus_1 = new_x;
 
-            System.out.println("new n_minus_1: " + n_minus_1);
-            System.out.println("new n_minus_2: " + n_minus_2);
-            
             result.add(new_x);
         }
 

@@ -1,16 +1,17 @@
 package ar.edu.untref.dyasc;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
 
-    public static String generateFibonacciSequence(Long n) {
+    public static String generateFibonacciSequence(BigInteger n) {
         Fibonacci fibo = new Fibonacci();
-        List<Long> numbers = fibo.getFibo(n);
+        List<BigInteger> numbers = fibo.getFibo(n);
 
         return numbers.stream()
-                .map(String::valueOf)
+                .map(BigInteger::toString)
                 .collect(Collectors.joining(" "));
     }
 
@@ -21,7 +22,7 @@ public class Main {
         }
 
         try {
-            Long n = Long.parseLong(args[0]);
+            BigInteger n = new BigInteger(args[0]);
             System.out.println("Generando secuencia...");
             String result = generateFibonacciSequence(n);
             System.out.println(String.format("fibo<%s>: %s", n.toString(), result));
