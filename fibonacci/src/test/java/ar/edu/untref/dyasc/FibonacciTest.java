@@ -1,6 +1,6 @@
 package ar.edu.untref.dyasc;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -14,31 +14,35 @@ public class FibonacciTest {
     public void fibo_1() {
         List<BigInteger> expected_res = Arrays.asList(BigInteger.ZERO);
         Fibonacci fibo = new Fibonacci();
-        assertThat(fibo.getFibo(BigInteger.ONE)).isEqualTo(expected_res);
+        assertEquals(fibo.getFibo(BigInteger.ONE), expected_res);
     }
 
     @Test
     public void fibo_2() {
         List<BigInteger> expected_res = Arrays.asList(BigInteger.ZERO, BigInteger.ONE);
         Fibonacci fibo = new Fibonacci();
-        assertThat(fibo.getFibo(BigInteger.valueOf(2))).isEqualTo(expected_res);
+        assertEquals(fibo.getFibo(BigInteger.valueOf(2)), expected_res);
     }
 
     @Test
     public void fibo_300() {
         // https://r-knott.surrey.ac.uk/Fibonacci/fibtable.html
-        BigInteger f300 = new BigInteger("222232244629420445529739893461909967206666939096499764990979600");
+        BigInteger f300_expected = new BigInteger("137347080577163115432025771710279131845700275212767467264610201");
         Fibonacci fibo = new Fibonacci();
-        assertThat(
-            fibo.getFibo(BigInteger.valueOf(300)).get(299) == f300);
+
+        BigInteger f300_actual = fibo.getFibo(BigInteger.valueOf(300)).get(299);
+
+        System.out.println("f300_actual: " + f300_actual.toString());
+        System.out.println("f300_expected: " + f300_expected.toString());
+        assertEquals(f300_actual.compareTo(f300_expected), 0);
     }
 
     @Test
     public void fibo_1000() {
         // http://www.fullbooks.com/The-first-1001-Fibonacci-Numbers.html
-        BigInteger f1000 = new BigInteger("43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875");
+        BigInteger f1000_expected = new BigInteger("26863810024485359386146727202142923967616609318986952340123175997617981700247881689338369654483356564191827856161443356312976673642210350324634850410377680367334151172899169723197082763985615764450078474174626");
         Fibonacci fibo = new Fibonacci();
-        assertThat(
-            fibo.getFibo(BigInteger.valueOf(1000)).get(999) == f1000);
+        BigInteger f1000_actual = fibo.getFibo(BigInteger.valueOf(1000)).get(999);
+        assertEquals(f1000_actual.compareTo(f1000_expected), 0);
     }
 }
