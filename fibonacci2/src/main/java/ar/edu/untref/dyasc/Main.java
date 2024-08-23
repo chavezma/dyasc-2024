@@ -1,22 +1,33 @@
 package ar.edu.untref.dyasc;
 
 import java.math.BigInteger;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
 
-    public static String generateFibonacciSequence(BigInteger n) {
+    public static String generateFibonacciSequence(BigInteger n, boolean isHorizontal, boolean isDirect) {
         Fibonacci fibo = new Fibonacci();
         List<BigInteger> numbers = fibo.getFibo(n);
+        String separator = " ";
+        String prefix = "";
 
-        return numbers.stream()
+        if(!isDirect)
+            Collections.reverse(numbers);
+        
+        if(!isHorizontal) {
+            separator = "\n";
+            prefix = "\n";
+        }
+        
+        return prefix + numbers.stream()
                 .map(BigInteger::toString)
-                .collect(Collectors.joining(" "));
+                .collect(Collectors.joining(separator));
     }
 
     private static void printHelp() {
-        System.out.println("Uso:");
+        System.out.println("Uso: -o=[v|h][d|i] <n>");
         System.out.println("  -o=[v|h][d|i] Orientacion: Formato de impresion de la secuencia (Opcional)");
         System.out.println("  <n>           Largo de la secuencia a generar (Obligatorio)");
     }
@@ -29,13 +40,21 @@ public class Main {
         boolean isHorizontal = true;
         boolean isDirect = true;
 
+        BigInteger n = null;
+
         if (args.length == 0 || args.length > 2) {
             printHelp();
             return;
         }
+        
+        if(args.length == 1) {
+            n = new BigInteger(args[0]);
+        }
 
         if (args.length == 2 && args[0].startsWith("-o=")) {
             
+            n = new BigInteger(args[1]);
+
             String options = args[0].substring(3).toLowerCase();
     
             if (options.length() != 2) 
@@ -66,9 +85,8 @@ public class Main {
         }
 
         try {
-            BigInteger n = new BigInteger(args[0]);
             System.out.println("Generando secuencia...");
-            String result = generateFibonacciSequence(n);
+            String result = generateFibonacciSequence(n, isHorizontal, isDirect);
             System.out.println(String.format("fibo<%s>: %s", n.toString(), result));
         } catch (IllegalArgumentException e) {
             System.out.println("El valor ingresado es inválido. Solo se permiten valores enteros positivos.");
