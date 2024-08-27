@@ -1,40 +1,30 @@
 # dyasc-2024
 Repositorio para trabajos practicos de Diseño y Arquitectura de sistemas de computación
 
-## Este codigo se compilar con JAVA 17
-## Parados en el home de la materia
+Este codigo se compilar con JAVA 17, tener correctamente configura la variable de entorno JAVA_HOME tanto para el compilador de java como para maven.
+Parados en el home de la materia
 
+# Fibonacci 
 
-# Fibonacci
+## 1- Compilacion de forma manual
+### Compilar
 
-## Compilacion Fibonacci
 ``` bash
-javac -d ./fibonacci/target "C:/UNTREF/Diseno y Arquitectura/dyasc-2024/fibonacci/src/main/java/ar/edu/untref/dyasc/Main.java" "C:/UNTREF/Diseno y Arquitectura/dyasc-2024/fibonacci/src/main/java/ar/edu/untref/dyasc/Fibonacci.java"
+javac -d ./target "./src/main/java/ar/edu/untref/dyasc/Main.java" "./src/main/java/ar/edu/untref/dyasc/Fibonacci.java"
 ``` 
 
-## Armar jar Fibonacci
+### Armar jar Fibonacci
+
 ``` bash
-jar cvfe fibo.jar ar.edu.untref.dyasc.Main -C fibonacci/target .
+jar cvfe target/fibo.jar ar.edu.untref.dyasc.Main -C target .
 ```
 
-## Ejecutar Fibonacci
+## 2- Compilar con Maven 
 ``` bash
-java -jar fibo.jar 1
+mvn clean package
 ```
 
-# Fibonacci Orientacion
-
-## Compilacion Fibonacci
+## 3- Ejecucion
 ``` bash
-javac -d ./fibonacci2/target "C:/UNTREF/Diseno y Arquitectura/dyasc-2024/fibonacci2/src/main/java/ar/edu/untref/dyasc/Main.java" "C:/UNTREF/Diseno y Arquitectura/dyasc-2024/fibonacci2/src/main/java/ar/edu/untref/dyasc/Fibonacci.java"
-``` 
-
-## Armar jar Fibonacci
-``` bash
-jar cvfe fibo.jar ar.edu.untref.dyasc.Main -C fibonacci2/target .
-```
-
-## Ejecutar Fibonacci
-``` bash
-java -jar fibo.jar -o=hd 1
+java -jar target/fibo.jar -o=hd 1
 ```
