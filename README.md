@@ -1,6 +1,7 @@
 # dyasc-2024
 Repositorio para trabajos practicos de Diseño y Arquitectura de sistemas de computación
 
+## Este codigo se compilar con JAVA 17
 ## Parados en el home de la materia
 
 
@@ -35,5 +36,5 @@ jar cvfe fibo.jar ar.edu.untref.dyasc.Main -C fibonacci2/target .
 
 ## Ejecutar Fibonacci
 ``` bash
-java -jar fibo.jar -o=vd 1
+java -jar fibo.jar -o=hd 1
 ```
