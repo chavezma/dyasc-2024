@@ -8,7 +8,7 @@ public class Fibonacci {
 
     public List<BigInteger> getFibo(BigInteger n) {
 
-        final BigInteger n1 = BigInteger.ZERO;
+        final BigInteger n1 = BigInteger.ONE;
         final BigInteger n2 = BigInteger.ONE;
 
         List<BigInteger> result = new ArrayList<>();

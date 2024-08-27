@@ -76,6 +76,7 @@
               <mainClass>ar.edu.untref.dyasc.Main</mainClass>
             </manifest>
           </archive>
+          <finalName>fibo</finalName> 
         </configuration>
       </plugin>
     </plugins>
