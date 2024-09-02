@@ -1,0 +1,12 @@
+﻿-IC:\Users\u633116\Documents\MATLAB\Examples\R2024a\aeroblks_quad\QuadcopterProjectExample3\asbQuadcopter\work\slprj\grt\stateEstimator
+-IC:\Users\u633116\Documents\MATLAB\Examples\R2024a\aeroblks_quad\QuadcopterProjectExample3\asbQuadcopter\work\slprj\grt\flightController
+-IC:\Users\u633116\Documents\MATLAB\Examples\R2024a\aeroblks_quad\QuadcopterProjectExample3\asbQuadcopter\work\slprj\grt\conversionYUV
+-IC:\Users\u633116\Documents\MATLAB\Examples\R2024a\aeroblks_quad\QuadcopterProjectExample3\asbQuadcopter\work
+-IC:\Users\u633116\Documents\MATLAB\Examples\R2024a\aeroblks_quad\QuadcopterProjectExample3\asbQuadcopter\work\flightControlSystem_grt_rtw
+-I"C:\Program Files\MATLAB\R2024a\extern\include"
+-I"C:\Program Files\MATLAB\R2024a\simulink\include"
+-I"C:\Program Files\MATLAB\R2024a\rtw\c\src"
+-I"C:\Program Files\MATLAB\R2024a\rtw\c\src\ext_mode\common"
+-I"C:\Program Files\MATLAB\R2024a\toolbox\vision\include"
+-I"C:\Program Files\MATLAB\R2024a\toolbox\shared\dsp\vision\matlab\include"
+-IC:\Users\u633116\Documents\MATLAB\Examples\R2024a\aeroblks_quad\QuadcopterProjectExample3\asbQuadcopter\work\slprj\grt\_sharedutils
